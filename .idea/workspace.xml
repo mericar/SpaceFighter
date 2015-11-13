@@ -42,11 +42,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SpaceFighter.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SpaceFighter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/spacefighter/SpaceFighter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.43589744">
+            <state vertical-scroll-proportion="0.0">
               <caret line="16" column="36" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/spacefighter/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.16346154">
+              <caret line="6" column="11" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -126,11 +136,11 @@
         <option value="$PROJECT_DIR$/src/spaceinvaders/Alien.java" />
         <option value="$PROJECT_DIR$/src/spaceinvaders/Commons.java" />
         <option value="$PROJECT_DIR$/src/spaceinvaders/Board.java" />
-        <option value="$PROJECT_DIR$/src/spacefighter/Main.java" />
         <option value="$PROJECT_DIR$/src/spacefighter/Commons.java" />
         <option value="$PROJECT_DIR$/src/spacefighter/Sentry.java" />
         <option value="$PROJECT_DIR$/src/spacefighter/Constants.java" />
         <option value="$PROJECT_DIR$/src/spacefighter/SpaceFighter.java" />
+        <option value="$PROJECT_DIR$/src/spacefighter/Main.java" />
       </list>
     </option>
   </component>
@@ -678,8 +688,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/spacefighter/SpaceFighter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43589744">
+        <state vertical-scroll-proportion="0.0">
           <caret line="16" column="36" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/spacefighter/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16346154">
+          <caret line="6" column="11" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
           <folding />
         </state>
       </provider>
