@@ -22,7 +22,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 
-public class Board extends JPanel implements Runnable, Commons {
+public class Board extends JPanel implements Runnable, Constants {
 
     private Dimension d;
     private ArrayList aliens;
