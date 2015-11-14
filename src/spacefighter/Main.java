@@ -1,5 +1,7 @@
 package spacefighter;
 
+import gui.SpaceFighter;
+
 /**
  * Created by mirk on 11/13/2015.
  */

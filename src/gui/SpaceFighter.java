@@ -1,4 +1,7 @@
-package spacefighter;
+package gui;
+
+import spacefighter.Board;
+import spacefighter.Constants;
 
 import javax.swing.*;
 

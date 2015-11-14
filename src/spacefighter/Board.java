@@ -7,6 +7,7 @@ package spacefighter;
 
 import agents.Bogey;
 import agents.Player;
+import agents.Shot;
 
 import java.awt.Color;
 import java.awt.Dimension;

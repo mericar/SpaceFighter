@@ -4,6 +4,7 @@ package spacefighter;
  * Created by M on 15-09-08.
  */
 // TODO: look into enum configuration
+
 public interface Constants {
     int BOARD_WIDTH = 900;
     int BOARD_HEIGHT = 800;

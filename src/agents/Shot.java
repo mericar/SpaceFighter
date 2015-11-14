@@ -1,10 +1,8 @@
-package spacefighter;
+package agents;
 
 /**
  * Created by M on 15-09-08.
  */
-import agents.Sprite;
-
 import javax.swing.*;
 
 
