@@ -28,12 +28,12 @@ import javax.swing.JPanel;
 public class Board extends JPanel implements Runnable, Constants {
 
     private Dimension d;
-    private ArrayList aliens;
+    private ArrayList bogeys;
     private Player player;
     private Shot shot;
 
-    private int alienX = 150;
-    private int alienY = 5;
+    private int alienX = 85;
+    private int alienY = 50;
     private int direction = -1;
     private int deaths = 0;
 
@@ -62,7 +62,7 @@ public class Board extends JPanel implements Runnable, Constants {
 
     public void gameInit() {
 
-        aliens = new ArrayList();
+        bogeys = new ArrayList();
 
         ImageIcon ii = new ImageIcon(this.getClass().getResource(alienpix));
 
@@ -70,7 +70,7 @@ public class Board extends JPanel implements Runnable, Constants {
             for (int j=0; j < 3; j++) {
                 Bogey bogey = new Bogey(alienX + 18*j, alienY + 18*i);
                 bogey.setImage(ii.getImage());
-                aliens.add(bogey);
+                bogeys.add(bogey);
             }
         }
 
@@ -85,10 +85,9 @@ public class Board extends JPanel implements Runnable, Constants {
 
     public void drawAliens(Graphics g)
     {
-        Iterator it = aliens.iterator();
 
-        while (it.hasNext()) {
-            Bogey bogey = (Bogey) it.next();
+        for (Object bogey1 : bogeys) {
+            Bogey bogey = (Bogey) bogey1;
 
             if (bogey.isVisible()) {
                 g.drawImage(bogey.getImage(), bogey.getX(), bogey.getY(), this);
@@ -119,10 +118,8 @@ public class Board extends JPanel implements Runnable, Constants {
 
     public void drawBombing(Graphics g) {
 
-        Iterator i3 = aliens.iterator();
-
-        while (i3.hasNext()) {
-            Bogey a = (Bogey) i3.next();
+        for (Object bogey : bogeys) {
+            Bogey a = (Bogey) bogey;
 
             Bogey.Bomb b = a.getBomb();
 
@@ -196,7 +193,7 @@ public class Board extends JPanel implements Runnable, Constants {
 
         // shot
         if (shot.isVisible()) {
-            Iterator it = aliens.iterator();
+            Iterator it = bogeys.iterator();
             int shotX = shot.getX();
             int shotY = shot.getY();
 
@@ -224,19 +221,16 @@ public class Board extends JPanel implements Runnable, Constants {
             else shot.setY(y);
         }
 
-        // aliens
+        // bogeys
 
-        Iterator it1 = aliens.iterator();
-
-        while (it1.hasNext()) {
-            Bogey a1 = (Bogey) it1.next();
+        for (Object bogey1 : bogeys) {
+            Bogey a1 = (Bogey) bogey1;
             int x = a1.getX();
 
-            if (x  >= BOARD_WIDTH - BORDER_RIGHT && direction != -1) {
+            if (x >= BOARD_WIDTH - BORDER_RIGHT && direction != -1) {
                 direction = -1;
-                Iterator i1 = aliens.iterator();
-                while (i1.hasNext()) {
-                    Bogey a2 = (Bogey) i1.next();
+                for (Object bogey : bogeys) {
+                    Bogey a2 = (Bogey) bogey;
                     a2.setY(a2.getY() + GO_DOWN);
                 }
             }
@@ -244,19 +238,16 @@ public class Board extends JPanel implements Runnable, Constants {
             if (x <= BORDER_LEFT && direction != 1) {
                 direction = 1;
 
-                Iterator i2 = aliens.iterator();
-                while (i2.hasNext()) {
-                    Bogey a = (Bogey)i2.next();
+                for (Object bogey : bogeys) {
+                    Bogey a = (Bogey) bogey;
                     a.setY(a.getY() + GO_DOWN);
                 }
             }
         }
 
 
-        Iterator it = aliens.iterator();
-
-        while (it.hasNext()) {
-            Bogey bogey = (Bogey) it.next();
+        for (Object bogey1 : bogeys) {
+            Bogey bogey = (Bogey) bogey1;
             if (bogey.isVisible()) {
 
                 int y = bogey.getY();
@@ -272,7 +263,7 @@ public class Board extends JPanel implements Runnable, Constants {
 
         // bombs
 
-        Iterator i3 = aliens.iterator();
+        Iterator i3 = bogeys.iterator();
         Random generator = new Random();
 
         while (i3.hasNext()) {
