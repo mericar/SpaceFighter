@@ -3,9 +3,9 @@ package spacefighter;
 /**
  * Created by M on 15-09-08.
  */
+import agents.Sprite;
 
-
-import javax.swing.ImageIcon;
+import javax.swing.*;
 
 
 public class Shot extends Sprite {
