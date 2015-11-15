@@ -5,9 +5,7 @@ package spacefighter;
  */
 
 
-import agents.Bogey;
-import agents.Player;
-import agents.Shot;
+import agents.*;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -41,7 +39,7 @@ public class Board extends JPanel implements Runnable, Constants {
     private boolean ingame = true;
     private final String expl = "purp.jpeg";
     private final String alienpix = "purp.jpeg";
-    private String message = "Game Over";
+    private String gameOverMessage = "Game Over";
 
     private Thread animator;
 
@@ -107,6 +105,7 @@ public class Board extends JPanel implements Runnable, Constants {
         }
 
         if (player.isDying()) {
+            gameOverMessage = "YOU HAVE BEEN SLAIN BY LORD XORLOTHOL!!!";
             player.die();
             ingame = false;
         }
@@ -122,7 +121,7 @@ public class Board extends JPanel implements Runnable, Constants {
         for (Object bogey : bogeys) {
             Bogey a = (Bogey) bogey;
 
-            Bogey.Bomb b = a.getBomb();
+            Bogey.Missile b = a.getMissile();
 
             if (!b.isDestroyed()) {
                 g.drawImage(b.getImage(), b.getX(), b.getY(), this);
@@ -168,7 +167,7 @@ public class Board extends JPanel implements Runnable, Constants {
 
         g.setColor(Color.white);
         g.setFont(small);
-        g.drawString(message, (BOARD_WIDTH - metr.stringWidth(message)) / 2,
+        g.drawString(gameOverMessage, (BOARD_WIDTH - metr.stringWidth(gameOverMessage)) / 2,
                 BOARD_WIDTH / 2);
         try {
             Thread.sleep(5000);
@@ -184,8 +183,9 @@ public class Board extends JPanel implements Runnable, Constants {
     public void animationCycle()  {
 
         if (deaths == NUMBER_OF_ALIENS_TO_DESTROY) {
+            gameOverMessage = "Game won!";
             ingame = false;
-            message = "Game won!";
+            deaths = 0;
         }
 
         // player
@@ -255,7 +255,7 @@ public class Board extends JPanel implements Runnable, Constants {
 
                 if (y > GROUND - ALIEN_HEIGHT) {
                     ingame = false;
-                    message = "Invasion!";
+                    gameOverMessage = "Invasion!";
                 }
 
                 bogey.act(direction);
@@ -270,7 +270,7 @@ public class Board extends JPanel implements Runnable, Constants {
         while (i3.hasNext()) {
             int shot = generator.nextInt(15);
             Bogey a = (Bogey) i3.next();
-            Bogey.Bomb b = a.getBomb();
+            Bogey.Missile b = a.getMissile();
             if (shot == CHANCE && a.isVisible() && b.isDestroyed()) {
 
                 b.setDestroyed(false);

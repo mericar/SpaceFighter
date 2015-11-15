@@ -9,14 +9,14 @@ import javax.swing.ImageIcon;
 
 public class Bogey extends Sprite {
 
-    private Bomb bomb;
+    private Missile missile;
     private String shot = "purp.jpeg";
 
     public Bogey(int x, int y) {
         this.x = x;
         this.y = y;
 
-        bomb = new Bomb(x, y);
+        missile = new Missile(x, y);
         ImageIcon ii = new ImageIcon(this.getClass().getResource(shot));
         setImage(ii.getImage());
 
@@ -26,16 +26,16 @@ public class Bogey extends Sprite {
         this.x += direction;
     }
 
-    public Bomb getBomb() {
-        return bomb;
+    public Missile getMissile() {
+        return missile;
     }
 
-    public class Bomb extends Sprite {
+    public class Missile extends Sprite {
 
         private String bomb = "purp.jpeg";
         private boolean destroyed;
 
-        public Bomb(int x, int y) {
+        public Missile(int x, int y) {
             setDestroyed(true);
             this.x = x;
             this.y = y;
