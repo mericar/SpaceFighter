@@ -34,7 +34,9 @@ public class Player extends Sprite implements Constants {
 
     public void act() {
         x += dx;
+        this.setX(this.x);
         y += dy;
+        this.setY(this.y);
 
         if (y <= 2)
             y = 2;
