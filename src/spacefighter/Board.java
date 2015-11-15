@@ -5,7 +5,8 @@ package spacefighter;
  */
 
 
-import agents.*;
+import agents.Bogey;
+import agents.Player;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -31,8 +32,8 @@ public class Board extends JPanel implements Runnable, Constants {
     private Player player;
     private Shot shot;
 
-    private int alienX = 85;
-    private int alienY = 50;
+    private int alienX = 350;
+    private int alienY = 100;
     private int direction = -1;
     private int deaths = 0;
 
@@ -62,7 +63,7 @@ public class Board extends JPanel implements Runnable, Constants {
     public void gameInit() {
 
         bogeys = new ArrayList();
-
+        ingame = true;
         ImageIcon ii = new ImageIcon(this.getClass().getResource(alienpix));
 
         for (int i=0; i < 3; i++) {
@@ -157,24 +158,20 @@ public class Board extends JPanel implements Runnable, Constants {
         g.setColor(Color.black);
         g.fillRect(0, 0, BOARD_WIDTH, BOARD_HEIGHT);
 
-        g.setColor(new Color(0, 32, 48));
-        g.fillRect(50, BOARD_WIDTH/2 - 30, BOARD_WIDTH-100, 50);
-        g.setColor(Color.white);
-        g.drawRect(50, BOARD_WIDTH/2 - 30, BOARD_WIDTH-100, 50);
-
-        Font small = new Font("Helvetica", Font.BOLD, 14);
-        FontMetrics metr = this.getFontMetrics(small);
+        g.setColor(new Color(180, 10, 0));
+        g.fillRect(50, BOARD_WIDTH / 2 - 30, BOARD_WIDTH - 100, 100);
+        Font fontStyle = new Font("Courier", Font.BOLD, 18);
+        FontMetrics metr = this.getFontMetrics(fontStyle);
 
         g.setColor(Color.white);
-        g.setFont(small);
+        g.setFont(fontStyle);
         g.drawString(gameOverMessage, (BOARD_WIDTH - metr.stringWidth(gameOverMessage)) / 2,
-                BOARD_WIDTH / 2);
+                BOARD_WIDTH / 2 + 20);
         try {
             Thread.sleep(5000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        ingame = true;
         animator = null;
         deaths = 0;
         gameInit();
@@ -191,6 +188,27 @@ public class Board extends JPanel implements Runnable, Constants {
         // player
 
         player.act();
+        // shot
+        if (player.isVisible()) {
+            Iterator it = bogeys.iterator();
+            int playerX = player.getX();
+            int playerY = player.getY();
+
+            while (it.hasNext()) {
+                Bogey bogey = (Bogey) it.next();
+                int alienX = bogey.getX();
+                int alienY = bogey.getY();
+
+                if (bogey.isVisible()) {
+                    if (playerX >= (alienX) && playerX <= (alienX + ALIEN_WIDTH) &&
+                            playerY >= (alienY) && playerY <= (alienY+ALIEN_HEIGHT) ) {
+                        ImageIcon ii = new ImageIcon(getClass().getResource(expl));
+                        player.setImage(ii.getImage());
+                        player.setDying(true);
+                    }
+                }
+            }
+        }
 
         // shot
         if (shot.isVisible()) {
@@ -272,7 +290,6 @@ public class Board extends JPanel implements Runnable, Constants {
             Bogey a = (Bogey) i3.next();
             Bogey.Missile b = a.getMissile();
             if (shot == CHANCE && a.isVisible() && b.isDestroyed()) {
-
                 b.setDestroyed(false);
                 b.setX(a.getX());
                 b.setY(a.getY());
