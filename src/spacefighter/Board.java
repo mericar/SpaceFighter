@@ -134,7 +134,7 @@ public class Board extends JPanel implements Runnable, Constants {
     {
         super.paint(g);
 
-        g.setColor(Color.lightGray);
+        g.setColor(Color.black);
         g.fillRect(0, 0, d.width, d.height);
         g.setColor(Color.green);
 
