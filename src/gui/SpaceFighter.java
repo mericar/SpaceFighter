@@ -1,7 +1,7 @@
 package gui;
 
 import spacefighter.Board;
-import spacefighter.Constants;
+import resources.Constants;
 
 import javax.swing.*;
 

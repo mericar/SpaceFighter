@@ -8,12 +8,14 @@ import java.awt.Insets;
 import javax.swing.JLabel;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class SomePanel extends JPanel{
+public class StartPanel extends JPanel{
 
 	private static final long serialVersionUID = -6249447845824621020L;
 
-	public SomePanel() {
+	public StartPanel() {
 		setBackground(new Color(25, 25, 112));
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0};
@@ -41,30 +43,49 @@ public class SomePanel extends JPanel{
 		gbc_lblSelectYourGame.gridy = 2;
 		add(lblSelectYourGame, gbc_lblSelectYourGame);
 		
-		JButton btnNewButton = new JButton("ONSLAUGHT");
-		btnNewButton.setBackground(new Color(0, 0, 255));
+		JButton onslaughtButton = new JButton("ONSLAUGHT");
+		onslaughtButton.setBackground(new Color(0, 0, 255));
 		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
 		gbc_btnNewButton.insets = new Insets(0, 0, 5, 5);
 		gbc_btnNewButton.gridx = 4;
 		gbc_btnNewButton.gridy = 4;
-		add(btnNewButton, gbc_btnNewButton);
+		onslaughtButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				//
+			}
+		});
+		add(onslaughtButton, gbc_btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("DEFENDER");
-		btnNewButton_1.setBackground(new Color(0, 0, 255));
+		JButton defenderButton = new JButton("DEFENDER");
+		defenderButton.setBackground(new Color(0, 0, 255));
 		GridBagConstraints gbc_btnNewButton_1 = new GridBagConstraints();
 		gbc_btnNewButton_1.fill = GridBagConstraints.VERTICAL;
 		gbc_btnNewButton_1.insets = new Insets(0, 0, 5, 5);
 		gbc_btnNewButton_1.gridx = 4;
 		gbc_btnNewButton_1.gridy = 5;
-		add(btnNewButton_1, gbc_btnNewButton_1);
+		defenderButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				//
+                new SpaceFighter();
+			}
+		});
+		add(defenderButton, gbc_btnNewButton_1);
 		
-		JButton btnNewButton_2 = new JButton("TURRET SLAYER");
-		btnNewButton_2.setBackground(new Color(0, 0, 255));
+		JButton turretGameButton = new JButton("TURRET SLAYER");
+		turretGameButton.setBackground(new Color(0, 0, 255));
 		GridBagConstraints gbc_btnNewButton_2 = new GridBagConstraints();
 		gbc_btnNewButton_2.insets = new Insets(0, 0, 5, 5);
 		gbc_btnNewButton_2.gridx = 4;
 		gbc_btnNewButton_2.gridy = 6;
-		add(btnNewButton_2, gbc_btnNewButton_2);
+		turretGameButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				//
+			}
+		});
+		add(turretGameButton, gbc_btnNewButton_2);
 	}
 
 

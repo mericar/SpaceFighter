@@ -4,7 +4,7 @@ package agents;
  * Created by M on 15-09-08.
  */
 
-import spacefighter.Constants;
+import resources.Constants;
 
 import java.awt.event.KeyEvent;
 
