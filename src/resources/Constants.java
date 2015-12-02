@@ -20,4 +20,10 @@ public interface Constants {
     int DELAY = 17;
     int PLAYER_WIDTH = 19;
     int PLAYER_HEIGHT = 12;
+    int ARSENAL_SIZE = 3;
+    CoordPair SENTRY_NORTHWEST = new CoordPair(90,90);
+    CoordPair SENTRY_NORTHEAST = new CoordPair(810,90);
+    CoordPair SENTRY_SOUTHWEST = new CoordPair(90,710);
+    CoordPair SENTRY_SOUTHEAST = new CoordPair(810,710);
+
 }

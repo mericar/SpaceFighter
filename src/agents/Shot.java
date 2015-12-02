@@ -9,17 +9,16 @@ import javax.swing.*;
 public class Shot extends Sprite {
 
     private String shot = "purp.jpeg";
-    private final int H_SPACE = 6;
-    private final int V_SPACE = 1;
+    private final int H_SPACE = 4;
+    private final int V_SPACE = 4;
 
-    public Shot() {
-    }
+    public Shot() {}
 
     public Shot(int x, int y) {
-
         ImageIcon ii = new ImageIcon(this.getClass().getResource(shot));
         setImage(ii.getImage());
         setX(x + H_SPACE);
         setY(y - V_SPACE);
     }
+
 }

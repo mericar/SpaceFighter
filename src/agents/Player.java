@@ -7,6 +7,7 @@ package agents;
 import resources.Constants;
 
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 
@@ -15,7 +16,7 @@ public class Player extends Sprite implements Constants {
 
     private final int START_Y = 280;
     private final int START_X = 270;
-
+    private ArrayList<Shot> arsenal;
     private String player = "purp.jpeg";
     private int width;
     private int height;
@@ -30,6 +31,8 @@ public class Player extends Sprite implements Constants {
         setImage(ii.getImage());
         setX(START_X);
         setY(START_Y);
+
+        arsenal = new ArrayList<>(ARSENAL_SIZE);
     }
 
     public void act() {
