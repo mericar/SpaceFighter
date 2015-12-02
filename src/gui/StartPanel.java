@@ -7,6 +7,7 @@ import javax.swing.JLabel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import resources.Constants;
+import resources.GameType;
 
 public class StartPanel extends JPanel implements Constants{
 
@@ -64,7 +65,7 @@ public class StartPanel extends JPanel implements Constants{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				//
-                new SpaceFighter();
+                new SpaceFighter(GameType.DEFENDER);
 			}
 		});
 		add(defenderButton, gbc_btnNewButton_1);

@@ -1,4 +1,5 @@
-package spacefighter;
+
+package Games;
 
 /**
  * Created by M on 15-09-08.
@@ -27,7 +28,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 
-public class Board extends JPanel implements Runnable, Constants {
+public class DefenderBoard extends JPanel implements Runnable, Constants {
 
     private Dimension d;
     private ArrayList bogeys;
@@ -46,7 +47,7 @@ public class Board extends JPanel implements Runnable, Constants {
 
     private Thread animator;
 
-    public Board()
+    public DefenderBoard()
     {
         addKeyListener(new TAdapter());
         setFocusable(true);

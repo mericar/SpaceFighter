@@ -1,6 +1,8 @@
 package gui;
 
-import spacefighter.Board;
+import Games.DefenderBoard;
+import resources.GameType;
+import Games.Board;
 import resources.Constants;
 
 import javax.swing.*;
@@ -11,15 +13,23 @@ import javax.swing.*;
 
 public class SpaceFighter extends JFrame implements Constants {
 
-    public SpaceFighter(){
+    public SpaceFighter(GameType gt){
+        switch(gt){
+            case ONSLAUGHT:
+                System.out.println("onslaught gametype selected");
 
-        add(new Board());
-        setTitle("Space Fighter!");
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(BOARD_WIDTH, BOARD_HEIGHT);
-        setLocationRelativeTo(null);
-        setVisible(true);
-        setResizable(false);
+            case DEFENDER:
+                add(new DefenderBoard());
+                setTitle("Space Fighter!");
+                setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+                setSize(BOARD_WIDTH, BOARD_HEIGHT);
+                setLocationRelativeTo(null);
+                setVisible(true);
+                setResizable(false);
+
+            case TURRET:
+                System.out.println("turret gametype selected");
+        }
     }
 
 }

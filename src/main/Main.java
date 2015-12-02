@@ -1,8 +1,6 @@
-package spacefighter;
+package main;
 
 import gui.SelectScreen;
-import gui.SpaceFighter;
-import gui.StartPanel;
 
 /**
  * Created by mirk on 11/13/2015.

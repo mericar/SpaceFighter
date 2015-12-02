@@ -3,6 +3,7 @@ package gui;
 import resources.Constants;
 
 import javax.swing.*;
+import java.awt.*;
 
 
 public class SelectScreen extends JFrame implements Constants {
