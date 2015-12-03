@@ -24,8 +24,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
 
-import javax.swing.ImageIcon;
-import javax.swing.JPanel;
+import javax.swing.*;
 
 
 public class DefenderBoard extends JPanel implements Runnable, Constants {
@@ -221,8 +220,24 @@ public class DefenderBoard extends JPanel implements Runnable, Constants {
 
             while (it.hasNext()) {
                 Bogey bogey = (Bogey) it.next();
+                Bogey.Missile b = bogey.getMissile();
+
+                int bombX = b.getX();
+                int bombY = b.getY();
                 int alienX = bogey.getX();
                 int alienY = bogey.getY();
+
+                if (b.isVisible() && shot.isVisible()) {
+                    if (shotX >= (bombX) && shotX <= (bombX + ALIEN_WIDTH) &&
+                            shotY >= (bombY) && shotY <= (bombY+ALIEN_HEIGHT) ) {
+                        ImageIcon ii = new ImageIcon(getClass().getResource(expl));
+                        b.setImage(ii.getImage());
+                        b.setDying(true);
+                        shot.die();
+                        b.setDestroyed(true);
+
+                    }
+                }
 
                 if (bogey.isVisible() && shot.isVisible()) {
                     if (shotX >= (alienX) && shotX <= (alienX + ALIEN_WIDTH) &&
@@ -234,6 +249,7 @@ public class DefenderBoard extends JPanel implements Runnable, Constants {
                         shot.die();
                     }
                 }
+
             }
 
             int y = shot.getY();
@@ -265,6 +281,7 @@ public class DefenderBoard extends JPanel implements Runnable, Constants {
                     a.setY(a.getY() + GO_DOWN);
                 }
             }
+
         }
 
 
@@ -316,6 +333,7 @@ public class DefenderBoard extends JPanel implements Runnable, Constants {
                 }
             }
 
+
             if (!b.isDestroyed()) {
                 b.setY(b.getY() + 1);
                 if (b.getY() >= GROUND - BOMB_HEIGHT) {
@@ -357,7 +375,7 @@ public class DefenderBoard extends JPanel implements Runnable, Constants {
         }
 
         public void keyPressed(KeyEvent e) {
-
+            int key = e.getKeyCode();
             player.keyPressed(e);
 
             int x = player.getX();
@@ -365,7 +383,7 @@ public class DefenderBoard extends JPanel implements Runnable, Constants {
 
             if (ingame)
             {
-                if (e.isAltDown()) {
+                if (key == KeyEvent.VK_W) {
                     if (!shot.isVisible())
                         shot = new Shot(x, y);
                 }

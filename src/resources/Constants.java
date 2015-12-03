@@ -6,9 +6,9 @@ package resources;
 // TODO: look into enum configuration
 
 public interface Constants {
-    int BOARD_WIDTH = 900;
-    int BOARD_HEIGHT = 800;
-    int GROUND = 770;
+    int BOARD_WIDTH = 1500;
+    int BOARD_HEIGHT = 1000;
+    int GROUND = 900;
     int BOMB_HEIGHT = 5;
     int ALIEN_HEIGHT = 12;
     int ALIEN_WIDTH = 12;
