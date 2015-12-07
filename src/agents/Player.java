@@ -55,23 +55,19 @@ public class Player extends Sprite implements Constants {
     public void keyPressed(KeyEvent e) {
         int key = e.getKeyCode();
 
-        if (key == KeyEvent.VK_UP)
-        {
+        if (key == KeyEvent.VK_UP) {
             dy = -2;
         }
 
-        if (key == KeyEvent.VK_DOWN)
-        {
+        if (key == KeyEvent.VK_DOWN) {
             dy = 2;
         }
 
-        if (key == KeyEvent.VK_LEFT)
-        {
+        if (key == KeyEvent.VK_LEFT) {
             dx = -2;
         }
 
-        if (key == KeyEvent.VK_RIGHT)
-        {
+        if (key == KeyEvent.VK_RIGHT) {
             dx = 2;
         }
     }
@@ -79,23 +75,19 @@ public class Player extends Sprite implements Constants {
     public void keyReleased(KeyEvent e) {
         int key = e.getKeyCode();
 
-        if (key == KeyEvent.VK_UP)
-        {
+        if (key == KeyEvent.VK_UP) {
             dy = 0;
         }
 
-        if (key == KeyEvent.VK_DOWN)
-        {
+        if (key == KeyEvent.VK_DOWN) {
             dy = 0;
         }
 
-        if (key == KeyEvent.VK_LEFT)
-        {
+        if (key == KeyEvent.VK_LEFT) {
             dx = 0;
         }
 
-        if (key == KeyEvent.VK_RIGHT)
-        {
+        if (key == KeyEvent.VK_RIGHT) {
             dx = 0;
         }
     }
