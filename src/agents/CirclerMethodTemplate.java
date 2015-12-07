@@ -6,7 +6,7 @@ package agents;
 public abstract class CirclerMethodTemplate implements WeaponStrategy {
 
     public void behave(){
-        //TODO: build seeker template
+        //TODO: build circler template
     }
     protected abstract void move();
     protected abstract boolean doSomethingElse();

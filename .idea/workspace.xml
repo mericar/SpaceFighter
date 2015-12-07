@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4844621b-ba58-45ae-9cad-cab1891506b1" name="Default" comment="Added strategy framework for shots">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/agents/CirclerMethodTemplate.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/agents/SeekerMethodTemplate.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/agents/WeaponStrategy.java" />
+    <list default="true" id="4844621b-ba58-45ae-9cad-cab1891506b1" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/agents/CirclerMethodTemplate.java" afterPath="$PROJECT_DIR$/src/agents/CirclerMethodTemplate.java" />
     </list>
     <ignored path="SpaceFighter.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -70,8 +68,8 @@
       <file leaf-file-name="CirclerMethodTemplate.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/agents/CirclerMethodTemplate.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8430034">
-              <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
+            <state vertical-scroll-proportion="0.51877135">
+              <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -691,7 +689,13 @@
       <option name="project" value="LOCAL" />
       <updated>1449520325183</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Added strategy framework for shots">
+      <created>1449521750072</created>
+      <option name="number" value="00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1449521750072</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1161,8 +1165,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/agents/CirclerMethodTemplate.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8430034">
-          <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
+        <state vertical-scroll-proportion="0.51877135">
+          <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
           <folding />
         </state>
       </provider>
