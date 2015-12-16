@@ -81,6 +81,7 @@ public class StartPanel extends JPanel implements Constants{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				//
+				new SpaceFighter(GameType.TURRET);
 			}
 		});
 		add(turretGameButton, gbc_btnNewButton_2);

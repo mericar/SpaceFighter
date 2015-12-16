@@ -9,7 +9,7 @@ import javax.swing.*;
  */
 public class Sentry extends Sprite {
 
-
+    private Projectile projectile;
     private String sentrypic, missile = "purp.jpeg";
 
     public Sentry(CoordPair cp) {
@@ -18,12 +18,16 @@ public class Sentry extends Sprite {
         this.x = cp.getX_coord();
         this.y = cp.getY_coord();
 
+        projectile = new Projectile(cp.getX_coord(), cp.getY_coord());
+
     }
 
     private void setPosition(int x, int y){
         this.x = x;
         this.y = y;
     }
+
+    public Projectile getProjectile(){return projectile;}
 
     public class Projectile extends Sprite {
 

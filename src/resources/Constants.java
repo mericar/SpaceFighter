@@ -22,8 +22,8 @@ public interface Constants {
     int PLAYER_HEIGHT = 12;
     int ARSENAL_SIZE = 10;
     CoordPair SENTRY_NORTHWEST = new CoordPair(90,90);
-    CoordPair SENTRY_NORTHEAST = new CoordPair(810,90);
-    CoordPair SENTRY_SOUTHWEST = new CoordPair(90,710);
-    CoordPair SENTRY_SOUTHEAST = new CoordPair(810,710);
+    CoordPair SENTRY_NORTHEAST = new CoordPair(BOARD_WIDTH-90,90);
+    CoordPair SENTRY_SOUTHWEST = new CoordPair(90,BOARD_HEIGHT-90);
+    CoordPair SENTRY_SOUTHEAST = new CoordPair(BOARD_WIDTH-90,BOARD_HEIGHT-90);
 
 }
