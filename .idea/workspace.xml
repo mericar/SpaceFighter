@@ -2,18 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4844621b-ba58-45ae-9cad-cab1891506b1" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/resources/Direction.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SpaceFighter/agents/Player.class" afterPath="$PROJECT_DIR$/out/production/SpaceFighter/agents/Player.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SpaceFighter/agents/Sentry.class" afterPath="$PROJECT_DIR$/out/production/SpaceFighter/agents/Sentry.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SpaceFighter/gui/StartPanel$3.class" afterPath="$PROJECT_DIR$/out/production/SpaceFighter/gui/StartPanel$3.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SpaceFighter/gui/StartPanel.class" afterPath="$PROJECT_DIR$/out/production/SpaceFighter/gui/StartPanel.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SpaceFighter/resources/Constants.class" afterPath="$PROJECT_DIR$/out/production/SpaceFighter/resources/Constants.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Games/TurretBoard.java" afterPath="$PROJECT_DIR$/src/Games/TurretBoard.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/agents/Sentry.java" afterPath="$PROJECT_DIR$/src/agents/Sentry.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/StartPanel.java" afterPath="$PROJECT_DIR$/src/gui/StartPanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/resources/Constants.java" afterPath="$PROJECT_DIR$/src/resources/Constants.java" />
     </list>
     <ignored path="SpaceFighter.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -286,7 +280,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
@@ -639,7 +633,13 @@
       <option name="project" value="LOCAL" />
       <updated>1449521750072</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Added strategy framework for shots">
+      <created>1450258937971</created>
+      <option name="number" value="00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1450258937971</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
