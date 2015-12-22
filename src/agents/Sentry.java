@@ -13,7 +13,7 @@ public class Sentry extends Sprite {
     private String sentrypic, missile = "purp.jpeg";
 
     public Sentry(CoordPair cp) {
-        ImageIcon ii = new ImageIcon(this.getClass().getResource(missile));
+        ImageIcon ii = new ImageIcon(this.getClass().getResource(sentrypic));
         setImage(ii.getImage());
         this.x = cp.getX_coord();
         this.y = cp.getY_coord();

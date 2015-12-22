@@ -1,13 +1,12 @@
 package gui;
 
-import javax.swing.JPanel;
-import java.awt.*;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import resources.Constants;
 import resources.GameType;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class StartPanel extends JPanel implements Constants{
 
@@ -80,7 +79,6 @@ public class StartPanel extends JPanel implements Constants{
 		turretGameButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//
 				new SpaceFighter(GameType.TURRET);
 			}
 		});
