@@ -6,10 +6,9 @@ package agents;
 
 import resources.Constants;
 
+import javax.swing.*;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
-
-import javax.swing.ImageIcon;
 
 
 public class Player extends Sprite implements Constants {
@@ -56,19 +55,19 @@ public class Player extends Sprite implements Constants {
         int key = e.getKeyCode();
 
         if (key == KeyEvent.VK_UP) {
-            dy = -2;
+            dy = -4;
         }
 
         if (key == KeyEvent.VK_DOWN) {
-            dy = 2;
+            dy = 4;
         }
 
         if (key == KeyEvent.VK_LEFT) {
-            dx = -2;
+            dx = -4;
         }
 
         if (key == KeyEvent.VK_RIGHT) {
-            dx = 2;
+            dx = 4;
         }
     }
 
