@@ -38,7 +38,7 @@ public class TurretBoard extends JPanel implements Runnable, Constants {
     private int deaths = 0;
     private boolean ingame = true;
     private final String expl = "purp.jpeg";
-    private final String sentrypix = "purp.jpeg";
+    private final String sentrypic = "purp.jpeg";
     private String gameOverMessage = "Game Over";
 
     private Thread animator;
@@ -65,7 +65,7 @@ public class TurretBoard extends JPanel implements Runnable, Constants {
 
         sentries = new ArrayList(4);
         ingame = true;
-        ImageIcon ii = new ImageIcon(this.getClass().getResource(sentrypix));
+        ImageIcon ii = new ImageIcon(this.getClass().getResource(sentrypic));
 
         Sentry snw = new Sentry(SENTRY_NORTHWEST);
         sentries.add(0,snw);

@@ -10,7 +10,8 @@ import javax.swing.*;
 public class Sentry extends Sprite {
 
     private Projectile projectile;
-    private String sentrypic, missile = "purp.jpeg";
+    private String sentrypic = "purp.jpeg";
+    private String missile = "purp.jpeg";
 
     public Sentry(CoordPair cp) {
         ImageIcon ii = new ImageIcon(this.getClass().getResource(sentrypic));
