@@ -12,6 +12,7 @@ import agents.Player;
 import agents.Sentry;
 import agents.Shot;
 import resources.Constants;
+import resources.Direction;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -77,7 +78,7 @@ public class TurretBoard extends JPanel implements Runnable, Constants {
         sentries.add(3,sse);
 
         player = new Player();
-        shot = new Shot();
+        shot = new Shot(Direction.UP);
 
         if (animator == null || !ingame) {
             animator = new Thread(this);
@@ -307,7 +308,7 @@ public class TurretBoard extends JPanel implements Runnable, Constants {
             {
                 if (key == KeyEvent.VK_W) {
                     if (!shot.isVisible())
-                        shot = new Shot(x, y);
+                        shot = new Shot(x, y, Direction.UP);
                 }
             }
         }

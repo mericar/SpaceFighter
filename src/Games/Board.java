@@ -9,6 +9,7 @@ import agents.Bogey;
 import agents.Player;
 import agents.Shot;
 import resources.Constants;
+import resources.Direction;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -77,7 +78,7 @@ public class Board extends JPanel implements Runnable, Constants {
         }
 
         player = new Player();
-        shot = new Shot();
+        shot = new Shot(Direction.UP);
 
         if (animator == null || !ingame) {
             animator = new Thread(this);
@@ -234,12 +235,8 @@ public class Board extends JPanel implements Runnable, Constants {
                     }
                 }
             }
-
-            int y = shot.getY();
-            y -= 4;
-            if (y < 0)
-                shot.die();
-            else shot.setY(y);
+            // movement code extracted into Shot class public method
+            shot.move();
         }
 
         // bogeys
@@ -356,19 +353,20 @@ public class Board extends JPanel implements Runnable, Constants {
         }
 
         public void keyPressed(KeyEvent e) {
-
+            int key = e.getKeyCode();
             player.keyPressed(e);
 
             int x = player.getX();
             int y = player.getY();
 
-            if (ingame)
-            {
-                if (e.isAltDown()) {
-                    if (!shot.isVisible())
-                        shot = new Shot(x, y);
+            if (ingame) {
+                if (key == KeyEvent.VK_W) {
+                    if (!shot.isVisible()){
+                        shot = new Shot(x, y, Direction.UP);
+                    }
                 }
             }
+
         }
     }
 }

@@ -27,11 +27,6 @@ import gui.SelectScreen;
 public class Main {
     // main
     public static void main(String[] args) {
-
-        MongoClient mongoClient = new MongoClient( "localhost", 8002 );
-        DB db = mongoClient.getDB( "mydb" );
-        System.out.println(db.getName());
-
         new SelectScreen();
     }
 

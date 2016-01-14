@@ -31,7 +31,7 @@ public class Player extends Sprite implements Constants {
         setX(START_X);
         setY(START_Y);
 
-        arsenal = new ArrayList<>(ARSENAL_SIZE);
+        this.arsenal = new ArrayList<>(ARSENAL_SIZE);
     }
 
     public void act() {

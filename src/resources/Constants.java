@@ -6,7 +6,7 @@ package resources;
 
 public interface Constants {
     int BOARD_WIDTH = 1500;
-    int BOARD_HEIGHT = 1000;
+    int BOARD_HEIGHT = 925;
     int GROUND = 900;
     int BOMB_HEIGHT = 5;
     int ALIEN_HEIGHT = 12;
@@ -24,5 +24,4 @@ public interface Constants {
     CoordPair SENTRY_NORTHEAST = new CoordPair(BOARD_WIDTH-90,90);
     CoordPair SENTRY_SOUTHWEST = new CoordPair(90,BOARD_HEIGHT-90);
     CoordPair SENTRY_SOUTHEAST = new CoordPair(BOARD_WIDTH-90,BOARD_HEIGHT-90);
-
 }
