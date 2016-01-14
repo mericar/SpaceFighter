@@ -2,33 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4844621b-ba58-45ae-9cad-cab1891506b1" name="Default" comment="updated turret game screen">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/images/purp.jpeg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SpaceFighter/Games/Board$TAdapter.class" afterPath="$PROJECT_DIR$/out/production/SpaceFighter/Games/Board$TAdapter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SpaceFighter/Games/Board.class" afterPath="$PROJECT_DIR$/out/production/SpaceFighter/Games/Board.class" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/SpaceFighter/Games/Board$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/SpaceFighter/Games/Board$TAdapter.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/SpaceFighter/Games/Board.class" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SpaceFighter/Games/DefenderBoard$TAdapter.class" afterPath="$PROJECT_DIR$/out/production/SpaceFighter/Games/DefenderBoard$TAdapter.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SpaceFighter/Games/DefenderBoard.class" afterPath="$PROJECT_DIR$/out/production/SpaceFighter/Games/DefenderBoard.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SpaceFighter/Games/TurretBoard$TAdapter.class" afterPath="$PROJECT_DIR$/out/production/SpaceFighter/Games/TurretBoard$TAdapter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SpaceFighter/Games/TurretBoard.class" afterPath="$PROJECT_DIR$/out/production/SpaceFighter/Games/TurretBoard.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SpaceFighter/agents/Shot.class" afterPath="$PROJECT_DIR$/out/production/SpaceFighter/agents/Shot.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SpaceFighter/main/Main.class" afterPath="$PROJECT_DIR$/out/production/SpaceFighter/main/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SpaceFighter/resources/GameType.class" afterPath="$PROJECT_DIR$/out/production/SpaceFighter/resources/GameType.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/SpaceFighter/Games/Board$TAdapter.class" afterPath="$PROJECT_DIR$/out/test/SpaceFighter/Games/Board$TAdapter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/SpaceFighter/Games/Board.class" afterPath="$PROJECT_DIR$/out/test/SpaceFighter/Games/Board.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SpaceFighter/agents/Bogey$Missile.class" afterPath="$PROJECT_DIR$/out/production/SpaceFighter/agents/Bogey$Missile.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SpaceFighter/agents/Bogey.class" afterPath="$PROJECT_DIR$/out/production/SpaceFighter/agents/Bogey.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/SpaceFighter/Games/DefenderBoard$TAdapter.class" afterPath="$PROJECT_DIR$/out/test/SpaceFighter/Games/DefenderBoard$TAdapter.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/SpaceFighter/Games/DefenderBoard.class" afterPath="$PROJECT_DIR$/out/test/SpaceFighter/Games/DefenderBoard.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/SpaceFighter/agents/Shot.class" afterPath="$PROJECT_DIR$/out/test/SpaceFighter/agents/Shot.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/SpaceFighter/resources/GameType.class" afterPath="$PROJECT_DIR$/out/test/SpaceFighter/resources/GameType.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/SpaceFighter/agents/Bogey$Missile.class" afterPath="$PROJECT_DIR$/out/test/SpaceFighter/agents/Bogey$Missile.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/SpaceFighter/agents/Bogey.class" afterPath="$PROJECT_DIR$/out/test/SpaceFighter/agents/Bogey.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/SpaceFighter/.idea/workspace.xml" afterPath="$PROJECT_DIR$/out/test/SpaceFighter/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Games/Board.java" afterPath="$PROJECT_DIR$/src/Games/Board.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/SpaceFighter/README.md" afterPath="$PROJECT_DIR$/out/test/SpaceFighter/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Games/DefenderBoard.java" afterPath="$PROJECT_DIR$/src/Games/DefenderBoard.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Games/TurretBoard.java" afterPath="$PROJECT_DIR$/src/Games/TurretBoard.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/agents/Player.java" afterPath="$PROJECT_DIR$/src/agents/Player.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/agents/Shot.java" afterPath="$PROJECT_DIR$/src/agents/Shot.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/Main.java" afterPath="$PROJECT_DIR$/src/main/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/resources/Constants.java" afterPath="$PROJECT_DIR$/src/resources/Constants.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/resources/GameType.java" afterPath="$PROJECT_DIR$/src/resources/GameType.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/agents/Bogey.java" afterPath="$PROJECT_DIR$/src/agents/Bogey.java" />
     </list>
     <ignored path="SpaceFighter.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -50,25 +38,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="525">
-      <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/agents/Player.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Shot.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/agents/Shot.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+              <caret line="25" column="26" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#319#320#0" expanded="true" />
                 <element signature="e#357#358#0" expanded="true" />
               </folding>
             </state>
@@ -79,7 +56,7 @@
         <entry file="file://$PROJECT_DIR$/src/Games/Board.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="80" column="36" selection-start-line="80" selection-start-column="36" selection-end-line="80" selection-end-column="36" />
+              <caret line="81" column="0" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -89,21 +66,8 @@
         <entry file="file://$PROJECT_DIR$/src/agents/Bogey.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+              <caret line="20" column="32" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ImageIcon.java" pinned="false" current-in-tab="false">
-        <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/src.zip!/javax/swing/ImageIcon.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="215" column="11" selection-start-line="215" selection-start-column="11" selection-end-line="215" selection-end-column="11" />
-              <folding>
-                <element signature="e#6701#6702#0" expanded="true" />
-                <element signature="e#6758#6759#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -118,20 +82,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameType.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/resources/GameType.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TurretBoard.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TurretBoard.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Games/TurretBoard.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.45933014">
+            <state vertical-scroll-proportion="0.0">
               <caret line="285" column="46" selection-start-line="285" selection-start-column="46" selection-end-line="285" selection-end-column="46" />
               <caret line="286" column="50" selection-start-line="286" selection-start-column="50" selection-end-line="286" selection-end-column="50" />
               <caret line="287" column="13" selection-start-line="287" selection-start-column="13" selection-end-line="287" selection-end-column="13" />
@@ -154,22 +108,59 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Direction.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/resources/Direction.java">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
+              <caret line="27" column="11" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#641#642#0" expanded="true" />
+                <element signature="e#675#676#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DefenderBoard.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Games/DefenderBoard.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="11.220779">
+              <caret line="438" column="0" selection-start-line="438" selection-start-column="0" selection-end-line="438" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DefenderBoard.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Games/DefenderBoard.java">
+      <file leaf-file-name="ArrayList.java" pinned="false" current-in-tab="false">
+        <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/src.zip!/java/util/ArrayList.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="79" column="30" selection-start-line="79" selection-start-column="30" selection-end-line="79" selection-end-column="30" />
+              <caret line="850" column="0" selection-start-line="850" selection-start-column="0" selection-end-line="850" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Component.java" pinned="false" current-in-tab="false">
+        <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/src.zip!/java/awt/Component.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="6492" column="0" selection-start-line="6492" selection-start-column="0" selection-end-line="6492" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Sprite.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/agents/Sprite.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+              <folding>
+                <element signature="e#347#348#0" expanded="true" />
+                <element signature="e#378#379#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -216,10 +207,11 @@
         <option value="$PROJECT_DIR$/src/agents/Player.java" />
         <option value="$PROJECT_DIR$/src/resources/GameType.java" />
         <option value="$PROJECT_DIR$/src/resources/Constants.java" />
-        <option value="$PROJECT_DIR$/src/agents/Shot.java" />
-        <option value="$PROJECT_DIR$/src/Games/DefenderBoard.java" />
-        <option value="$PROJECT_DIR$/src/Games/Board.java" />
         <option value="$PROJECT_DIR$/src/Games/TurretBoard.java" />
+        <option value="$PROJECT_DIR$/src/Games/Board.java" />
+        <option value="$PROJECT_DIR$/src/agents/Shot.java" />
+        <option value="$PROJECT_DIR$/src/agents/Bogey.java" />
+        <option value="$PROJECT_DIR$/src/Games/DefenderBoard.java" />
       </list>
     </option>
   </component>
@@ -841,7 +833,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32988507" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16360116" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.003872217" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17864583" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -912,20 +904,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/SelectScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="36" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/agents/Player.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1127,14 +1105,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/agents/Sprite.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3800475">
-          <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/agents/SeekerMethodTemplate.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3087886">
@@ -1165,17 +1135,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="44" selection-start-line="28" selection-start-column="44" selection-end-line="28" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#675#676#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1287,17 +1246,9 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="215" column="11" selection-start-line="215" selection-start-column="11" selection-end-line="215" selection-end-column="11" />
           <folding>
-            <element signature="e#6701#6702#0" expanded="true" />
-            <element signature="e#6758#6759#0" expanded="true" />
+            <element signature="e#6701#6702#0" expanded="false" />
+            <element signature="e#6758#6759#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/agents/Bogey.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1325,36 +1276,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/agents/Shot.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#357#358#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Games/DefenderBoard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="79" column="30" selection-start-line="79" selection-start-column="30" selection-end-line="79" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Games/Board.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="80" column="36" selection-start-line="80" selection-start-column="36" selection-end-line="80" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Games/TurretBoard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45933014">
+        <state vertical-scroll-proportion="0.0">
           <caret line="285" column="46" selection-start-line="285" selection-start-column="46" selection-end-line="285" selection-end-column="46" />
           <caret line="286" column="50" selection-start-line="286" selection-start-column="50" selection-end-line="286" selection-end-column="50" />
           <caret line="287" column="13" selection-start-line="287" selection-start-column="13" selection-end-line="287" selection-end-column="13" />
@@ -1373,6 +1297,81 @@
             <element signature="e#7875#7876#0" expanded="true" />
             <element signature="e#7920#7921#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="27" column="11" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#641#642#0" expanded="true" />
+            <element signature="e#675#676#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/agents/Sprite.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding>
+            <element signature="e#347#348#0" expanded="true" />
+            <element signature="e#378#379#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/agents/Shot.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="26" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#319#320#0" expanded="true" />
+            <element signature="e#357#358#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/agents/Bogey.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="32" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Games/Board.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="81" column="0" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/src.zip!/java/util/ArrayList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="850" column="0" selection-start-line="850" selection-start-column="0" selection-end-line="850" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home/src.zip!/java/awt/Component.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6492" column="0" selection-start-line="6492" selection-start-column="0" selection-end-line="6492" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Games/DefenderBoard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="11.220779">
+          <caret line="438" column="0" selection-start-line="438" selection-start-column="0" selection-end-line="438" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

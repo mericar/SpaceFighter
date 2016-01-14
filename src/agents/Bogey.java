@@ -19,7 +19,6 @@ public class Bogey extends Sprite {
         missile = new Missile(x, y);
         ImageIcon ii = new ImageIcon(this.getClass().getResource(shot));
         setImage(ii.getImage());
-
     }
 
     public void act(int direction) {

@@ -32,8 +32,9 @@ public class DefenderBoard extends JPanel implements Runnable, Constants {
 
     private Dimension d;
     private ArrayList bogeys;
+    private ArrayList shots;
     private Player player;
-    private Shot shot;
+    //private Shot shot;
 
     private int alienX = 350;
     private int alienY = 100;
@@ -46,6 +47,12 @@ public class DefenderBoard extends JPanel implements Runnable, Constants {
     private String gameOverMessage = "Game Over";
 
     private Thread animator;
+    private Shot shotUp;
+    private Shot shotDown;
+    private Shot shotLeft;
+    private Shot shotRight;
+
+
 
     public DefenderBoard()
     {
@@ -66,6 +73,7 @@ public class DefenderBoard extends JPanel implements Runnable, Constants {
     public void gameInit() {
 
         bogeys = new ArrayList();
+        shots = new ArrayList();
         ingame = true;
         ImageIcon ii = new ImageIcon(this.getClass().getResource(alienpix));
 
@@ -78,7 +86,17 @@ public class DefenderBoard extends JPanel implements Runnable, Constants {
         }
 
         player = new Player();
-        shot = new Shot(Direction.UP);
+
+        shotUp = new Shot(Direction.UP);
+        shotDown = new Shot(Direction.DOWN);
+        shotLeft = new Shot(Direction.LEFT);
+        shotRight = new Shot(Direction.RIGHT);
+
+        shots.add(shotDown);
+        shots.add(shotUp);
+        shots.add(shotRight);
+        shots.add(shotLeft);
+
 
         if (animator == null || !ingame) {
             animator = new Thread(this);
@@ -116,8 +134,16 @@ public class DefenderBoard extends JPanel implements Runnable, Constants {
     }
 
     public void drawShot(Graphics g) {
-        if (shot.isVisible())
-            g.drawImage(shot.getImage(), shot.getX(), shot.getY(), this);
+
+        for (Object s : shots) {
+
+            Shot shot = (Shot) s;
+
+            if (shot.isVisible()) {
+                g.drawImage(shot.getImage(), shot.getX(), shot.getY(), this);
+            }
+        }
+
     }
 
     public void drawBombing(Graphics g) {
@@ -133,8 +159,7 @@ public class DefenderBoard extends JPanel implements Runnable, Constants {
         }
     }
 
-    public void paint(Graphics g)
-    {
+    public void paint(Graphics g) {
         super.paint(g);
 
         g.setColor(Color.black);
@@ -153,8 +178,7 @@ public class DefenderBoard extends JPanel implements Runnable, Constants {
         g.dispose();
     }
 
-    public void gameOver()
-    {
+    public void gameOver() {
 
         Graphics g = this.getGraphics();
 
@@ -191,7 +215,7 @@ public class DefenderBoard extends JPanel implements Runnable, Constants {
         // player
 
         player.act();
-        // shot
+
         if (player.isVisible()) {
             Iterator it = bogeys.iterator();
             int playerX = player.getX();
@@ -213,49 +237,58 @@ public class DefenderBoard extends JPanel implements Runnable, Constants {
             }
         }
 
-        // shot
-        if (shot.isVisible()) {
-            Iterator it = bogeys.iterator();
-            int shotX = shot.getX();
-            int shotY = shot.getY();
+        // shots are looped through:
+        for (Object s : shots) {
 
-            while (it.hasNext()) {
-                Bogey bogey = (Bogey) it.next();
-                Bogey.Missile b = bogey.getMissile();
+            Shot shot = (Shot) s;
 
-                int bombX = b.getX();
-                int bombY = b.getY();
-                int alienX = bogey.getX();
-                int alienY = bogey.getY();
+            if (shot.isVisible()) {
+                Iterator it = bogeys.iterator();
 
-                if (b.isVisible() && shot.isVisible()) {
-                    if (shotX >= (bombX) && shotX <= (bombX + ALIEN_WIDTH) &&
-                            shotY >= (bombY) && shotY <= (bombY+ALIEN_HEIGHT) ) {
-                        ImageIcon ii = new ImageIcon(getClass().getResource(expl));
-                        b.setImage(ii.getImage());
-                        b.setDying(true);
-                        shot.die();
-                        b.setDestroyed(true);
+                int shotX = shot.getX();
+                int shotY = shot.getY();
 
+                while (it.hasNext()) {
+                    Bogey bogey = (Bogey) it.next();
+                    Bogey.Missile b = bogey.getMissile();
+
+                    int bombX = b.getX();
+                    int bombY = b.getY();
+                    int alienX = bogey.getX();
+                    int alienY = bogey.getY();
+
+                    if (b.isVisible() && shot.isVisible()) {
+                        if (shotX >= (bombX) && shotX <= (bombX + ALIEN_WIDTH) &&
+                                shotY >= (bombY) && shotY <= (bombY+ALIEN_HEIGHT) ) {
+                            ImageIcon ii = new ImageIcon(getClass().getResource(expl));
+                            b.setImage(ii.getImage());
+                            b.setDying(true);
+                            shot.die();
+                            b.setDestroyed(true);
+
+                        }
                     }
-                }
 
-                if (bogey.isVisible() && shot.isVisible()) {
-                    if (shotX >= (alienX) && shotX <= (alienX + ALIEN_WIDTH) &&
-                            shotY >= (alienY) && shotY <= (alienY+ALIEN_HEIGHT) ) {
-                        ImageIcon ii = new ImageIcon(getClass().getResource(expl));
-                        bogey.setImage(ii.getImage());
-                        bogey.setDying(true);
-                        deaths++;
-                        shot.die();
+                    if (bogey.isVisible() && shot.isVisible()) {
+                        if (shotX >= (alienX) && shotX <= (alienX + ALIEN_WIDTH) &&
+                                shotY >= (alienY) && shotY <= (alienY+ALIEN_HEIGHT) ) {
+                            ImageIcon ii = new ImageIcon(getClass().getResource(expl));
+                            bogey.setImage(ii.getImage());
+                            bogey.setDying(true);
+                            deaths++;
+                            shot.die();
+                            shots.remove(shot);
+                        }
                     }
-                }
-
             }
 
             //extracted movement code into shot method
             shot.move();
+            }
+        // end of for loop
         }
+
+
 
         // bogeys
 
@@ -380,14 +413,53 @@ public class DefenderBoard extends JPanel implements Runnable, Constants {
             int y = player.getY();
 
             if (ingame) {
+
+
                 if (key == KeyEvent.VK_W) {
-                    if (!shot.isVisible()){
-                        shot = new Shot(x, y, Direction.UP);
+                    for (Object s : shots) {
+                        Shot shot = (Shot) s;
+
+                        if (!shot.isVisible()){
+                            shot = new Shot(x, y, Direction.UP);
+                            shots.add(shot);
+                        }
                     }
                 }
+                if (key == KeyEvent.VK_A) {
+                    for (Object s : shots) {
+                        Shot shot = (Shot) s;
+
+                        if (!shot.isVisible()){
+                            shot = new Shot(x, y, Direction.LEFT);
+                            shots.add(shot);
+                        }
+                    }
+                }
+                if (key == KeyEvent.VK_S) {
+                    for (Object s : shots) {
+                        Shot shot = (Shot) s;
+
+                        if (!shot.isVisible()){
+                            shot = new Shot(x, y, Direction.DOWN);
+                            shots.add(shot);
+                        }
+                    }
+                }
+                if (key == KeyEvent.VK_D) {
+                    for (Object s : shots) {
+                        Shot shot = (Shot) s;
+
+                        if (!shot.isVisible()){
+                            shot = new Shot(x, y, Direction.RIGHT);
+                            shots.add(shot);
+                        }
+                    }
+                }
+
             }
 
         }
     }
+
 
 }
