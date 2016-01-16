@@ -8,14 +8,12 @@ import resources.Constants;
 
 import javax.swing.*;
 import java.awt.event.KeyEvent;
-import java.util.ArrayList;
 
 
 public class Player extends Sprite implements Constants {
 
     private final int START_Y = 280;
     private final int START_X = 270;
-    private ArrayList<Shot> arsenal;
     private String player = "purp.jpeg";
     private int width;
     private int height;
@@ -30,13 +28,13 @@ public class Player extends Sprite implements Constants {
         setImage(ii.getImage());
         setX(START_X);
         setY(START_Y);
-
-        this.arsenal = new ArrayList<>(ARSENAL_SIZE);
     }
 
     public void act() {
+
         x += dx;
         this.setX(this.x);
+
         y += dy;
         this.setY(this.y);
 
@@ -52,6 +50,7 @@ public class Player extends Sprite implements Constants {
     }
 
     public void keyPressed(KeyEvent e) {
+
         int key = e.getKeyCode();
 
         if (key == KeyEvent.VK_UP) {

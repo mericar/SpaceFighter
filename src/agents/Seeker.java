@@ -13,14 +13,16 @@ public class Seeker extends Sprite {
     private String seeker = "purp.jpeg";
     private final int H_SPACE = 4;
     private final int V_SPACE = 4;
+    private Player target;
 
-    public Seeker() {}
-
-    public Seeker(int x, int y) {
+    public Seeker(int x, int y, Player p) {
         ImageIcon ii = new ImageIcon(this.getClass().getResource(seeker));
         setImage(ii.getImage());
         setX(x + H_SPACE);
         setY(y - V_SPACE);
+        this.target = p;
     }
+
+
 
 }
