@@ -12,27 +12,21 @@ import agents.Shot;
 import resources.Constants;
 import resources.Direction;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.FontMetrics;
-import java.awt.Graphics;
-import java.awt.Toolkit;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
-
-import javax.swing.*;
 
 
 public class DefenderBoard extends JPanel implements Runnable, Constants {
 
     private Dimension d;
     private ArrayList bogeys;
-    private ArrayList shots;
+    private ArrayList swarm;
+    private ArrayList<Shot> shots;
     private Player player;
     //private Shot shot;
 
@@ -74,6 +68,7 @@ public class DefenderBoard extends JPanel implements Runnable, Constants {
 
         bogeys = new ArrayList();
         shots = new ArrayList();
+        swarm = new ArrayList();
         ingame = true;
         ImageIcon ii = new ImageIcon(this.getClass().getResource(alienpix));
 
@@ -91,7 +86,6 @@ public class DefenderBoard extends JPanel implements Runnable, Constants {
         shotDown = new Shot(Direction.DOWN);
         shotLeft = new Shot(Direction.LEFT);
         shotRight = new Shot(Direction.RIGHT);
-
         shots.add(shotDown);
         shots.add(shotUp);
         shots.add(shotRight);
@@ -143,7 +137,6 @@ public class DefenderBoard extends JPanel implements Runnable, Constants {
                 g.drawImage(shot.getImage(), shot.getX(), shot.getY(), this);
             }
         }
-
     }
 
     public void drawBombing(Graphics g) {
@@ -265,7 +258,6 @@ public class DefenderBoard extends JPanel implements Runnable, Constants {
                             b.setDying(true);
                             shot.die();
                             b.setDestroyed(true);
-
                         }
                     }
 
@@ -277,11 +269,9 @@ public class DefenderBoard extends JPanel implements Runnable, Constants {
                             bogey.setDying(true);
                             deaths++;
                             shot.die();
-                            shots.remove(shot);
                         }
                     }
-            }
-
+                }
             //extracted movement code into shot method
             shot.move();
             }
@@ -291,7 +281,6 @@ public class DefenderBoard extends JPanel implements Runnable, Constants {
 
 
         // bogeys
-
         for (Object bogey1 : bogeys) {
             Bogey a1 = (Bogey) bogey1;
             int x = a1.getX();
@@ -317,7 +306,9 @@ public class DefenderBoard extends JPanel implements Runnable, Constants {
 
 
         for (Object bogey1 : bogeys) {
+
             Bogey bogey = (Bogey) bogey1;
+
             if (bogey.isVisible()) {
 
                 int y = bogey.getY();
@@ -326,13 +317,11 @@ public class DefenderBoard extends JPanel implements Runnable, Constants {
                     ingame = false;
                     gameOverMessage = "Invasion!";
                 }
-
                 bogey.act(direction);
             }
         }
 
         // bombs
-
         Iterator i3 = bogeys.iterator();
         Random generator = new Random();
 
