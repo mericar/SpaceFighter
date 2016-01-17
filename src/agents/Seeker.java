@@ -9,7 +9,6 @@ public class Seeker extends Sprite {
 
     //TODO: Implement sprite
 
-
     private String seeker = "purp.jpeg";
     private final int H_SPACE = 4;
     private final int V_SPACE = 4;

@@ -32,7 +32,7 @@ public class DefenderBoard extends JPanel implements Runnable, Constants {
 
     private int alienX = 350;
     private int alienY = 100;
-    private int direction = -1;
+    private int direction = dxleft;
     private int deaths = 0;
 
     private boolean ingame = true;
@@ -98,8 +98,7 @@ public class DefenderBoard extends JPanel implements Runnable, Constants {
         }
     }
 
-    public void drawAliens(Graphics g)
-    {
+    public void drawAliens(Graphics g) {
 
         for (Object bogey1 : bogeys) {
             Bogey bogey = (Bogey) bogey1;
@@ -179,14 +178,14 @@ public class DefenderBoard extends JPanel implements Runnable, Constants {
         g.fillRect(0, 0, BOARD_WIDTH, BOARD_HEIGHT);
 
         g.setColor(new Color(180, 10, 0));
-        g.fillRect(50, BOARD_WIDTH / 2 - 30, BOARD_WIDTH - 100, 100);
+        g.fillRect(50, BOARD_HEIGHT / 2 - 50, BOARD_WIDTH - 100, 100);
         Font fontStyle = new Font("Courier", Font.BOLD, 18);
         FontMetrics metr = this.getFontMetrics(fontStyle);
 
         g.setColor(Color.white);
         g.setFont(fontStyle);
         g.drawString(gameOverMessage, (BOARD_WIDTH - metr.stringWidth(gameOverMessage)) / 2,
-                BOARD_WIDTH / 2 + 20);
+                BOARD_HEIGHT / 2);
         try {
             Thread.sleep(5000);
         } catch (InterruptedException e) {
@@ -205,8 +204,10 @@ public class DefenderBoard extends JPanel implements Runnable, Constants {
             deaths = 0;
         }
 
-        // player
 
+
+
+        // player
         player.act();
 
         if (player.isVisible()) {
@@ -229,6 +230,9 @@ public class DefenderBoard extends JPanel implements Runnable, Constants {
                 }
             }
         }
+
+
+
 
         // shots are looped through:
         for (Object s : shots) {
@@ -286,7 +290,7 @@ public class DefenderBoard extends JPanel implements Runnable, Constants {
             int x = a1.getX();
 
             if (x >= BOARD_WIDTH - BORDER_RIGHT && direction != -1) {
-                direction = -1;
+                direction = dxleft;
                 for (Object bogey : bogeys) {
                     Bogey a2 = (Bogey) bogey;
                     a2.setY(a2.getY() + GO_DOWN);
@@ -294,7 +298,7 @@ public class DefenderBoard extends JPanel implements Runnable, Constants {
             }
 
             if (x <= BORDER_LEFT && direction != 1) {
-                direction = 1;
+                direction = dxright;
 
                 for (Object bogey : bogeys) {
                     Bogey a = (Bogey) bogey;
@@ -303,7 +307,6 @@ public class DefenderBoard extends JPanel implements Runnable, Constants {
             }
 
         }
-
 
         for (Object bogey1 : bogeys) {
 
@@ -321,45 +324,40 @@ public class DefenderBoard extends JPanel implements Runnable, Constants {
             }
         }
 
+
+
+
         // bombs
         Iterator i3 = bogeys.iterator();
         Random generator = new Random();
 
         while (i3.hasNext()) {
-            int shot = generator.nextInt(15);
+            int shot = generator.nextInt(10);
             Bogey a = (Bogey) i3.next();
-            Bogey.Missile b = a.getMissile();
-            if (shot == CHANCE && a.isVisible() && b.isDestroyed()) {
-                b.setDestroyed(false);
-                b.setX(a.getX());
-                b.setY(a.getY());
+            Bogey.Missile m = a.getMissile();
+            if (shot == CHANCE && a.isVisible() && m.isDestroyed()) {
+                m.setDestroyed(false);
+                m.setX(a.getX());
+                m.setY(a.getY());
             }
 
-            int bombX = b.getX();
-            int bombY = b.getY();
+            int missileX = m.getX();
+            int missileY = m.getY();
             int playerX = player.getX();
             int playerY = player.getY();
 
-            if (player.isVisible() && !b.isDestroyed()) {
-                if ( bombX >= (playerX) &&
-                        bombX <= (playerX+PLAYER_WIDTH) &&
-                        bombY >= (playerY) &&
-                        bombY <= (playerY+PLAYER_HEIGHT) ) {
-                    ImageIcon ii =
-                            new ImageIcon(this.getClass().getResource(expl));
+            if (player.isVisible() && !m.isDestroyed()) {
+                if ( missileX >= (playerX) &&
+                        missileX <= (playerX+PLAYER_WIDTH) &&
+                        missileY >= (playerY) &&
+                        missileY <= (playerY+PLAYER_HEIGHT) ) {
+                    ImageIcon ii = new ImageIcon(this.getClass().getResource(expl));
                     player.setImage(ii.getImage());
                     player.setDying(true);
-                    b.setDestroyed(true);
+                    m.setDestroyed(true);
                 }
             }
-
-
-            if (!b.isDestroyed()) {
-                b.setY(b.getY() + 1);
-                if (b.getY() >= GROUND - BOMB_HEIGHT) {
-                    b.setDestroyed(true);
-                }
-            }
+            m.move();
         }
     }
 
@@ -387,6 +385,8 @@ public class DefenderBoard extends JPanel implements Runnable, Constants {
         }
         gameOver();
     }
+
+
 
     private class TAdapter extends KeyAdapter {
 

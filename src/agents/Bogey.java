@@ -4,10 +4,12 @@ package agents;
  * Created by M on 15-09-08.
  */
 
+import resources.Constants;
+
 import javax.swing.ImageIcon;
 
 
-public class Bogey extends Sprite {
+public class Bogey extends Sprite implements Constants {
 
     private Missile missile;
     private String shot = "purp.jpeg";
@@ -29,6 +31,7 @@ public class Bogey extends Sprite {
         return missile;
     }
 
+
     public class Missile extends Sprite {
 
         private String bomb = "purp.jpeg";
@@ -48,6 +51,15 @@ public class Bogey extends Sprite {
 
         public boolean isDestroyed() {
             return destroyed;
+        }
+
+        public void move(){
+            if (!this.isDestroyed()) {
+                this.setY(this.getY() + 1);
+                if (this.getY() >= GROUND - BOMB_HEIGHT) {
+                    this.setDestroyed(true);
+                }
+            }
         }
     }
 
