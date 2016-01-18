@@ -34,6 +34,7 @@ public class TurretBoard extends JPanel implements Runnable, Constants {
 
     private Dimension d;
     private ArrayList sentries;
+    private ArrayList shots;
     private Player player;
     private Shot shot;
     private int deaths = 0;
@@ -44,8 +45,15 @@ public class TurretBoard extends JPanel implements Runnable, Constants {
 
     private Thread animator;
 
+    private Shot shotUp;
+    private Shot shotDown;
+    private Shot shotLeft;
+    private Shot shotRight;
 
-    public TurretBoard(){
+
+    public TurretBoard()
+    {
+        this.shots = new ArrayList();
         addKeyListener(new TAdapter());
         setFocusable(true);
         d = new Dimension(BOARD_WIDTH, BOARD_HEIGHT);
@@ -64,7 +72,7 @@ public class TurretBoard extends JPanel implements Runnable, Constants {
 
     public void gameInit(){
 
-        sentries = new ArrayList(4);
+        sentries = new ArrayList();
         ingame = true;
         ImageIcon ii = new ImageIcon(this.getClass().getResource(sentrypic));
 
@@ -78,7 +86,15 @@ public class TurretBoard extends JPanel implements Runnable, Constants {
         sentries.add(3,sse);
 
         player = new Player();
-        shot = new Shot(Direction.UP);
+
+        shotUp = new Shot(Direction.UP);
+        shotDown = new Shot(Direction.DOWN);
+        shotLeft = new Shot(Direction.LEFT);
+        shotRight = new Shot(Direction.RIGHT);
+        shots.add(shotDown);
+        shots.add(shotUp);
+        shots.add(shotRight);
+        shots.add(shotLeft);
 
         if (animator == null || !ingame) {
             animator = new Thread(this);
@@ -89,16 +105,15 @@ public class TurretBoard extends JPanel implements Runnable, Constants {
 
     public void drawSentries(Graphics g)
     {
-
         for (Object sentry : sentries) {
-            Sentry sentry1 = (Sentry) sentry;
+            Sentry s = (Sentry) sentry;
 
-            if (sentry1.isVisible()) {
-                g.drawImage(sentry1.getImage(), sentry1.getX(), sentry1.getY(), this);
+            if (s.isVisible()) {
+                g.drawImage(s.getImage(), s.getX(), s.getY(), this);
             }
 
-            if (sentry1.isDying()) {
-                sentry1.die();
+            if (s.isDying()) {
+                s.die();
             }
         }
     }
@@ -117,8 +132,14 @@ public class TurretBoard extends JPanel implements Runnable, Constants {
     }
 
     public void drawShot(Graphics g) {
-        if (shot.isVisible())
-            g.drawImage(shot.getImage(), shot.getX(), shot.getY(), this);
+        for (Object s : shots) {
+
+            Shot shot = (Shot) s;
+
+            if (shot.isVisible()) {
+                g.drawImage(shot.getImage(), shot.getX(), shot.getY(), this);
+            }
+        }
     }
 
     public void drawProjectile(Graphics g) {
@@ -215,57 +236,53 @@ public class TurretBoard extends JPanel implements Runnable, Constants {
         }
 
         // shot
-        if (shot.isVisible()) {
-            Iterator it = sentries.iterator();
-            int shotX = shot.getX();
-            int shotY = shot.getY();
+        for (Object s : shots) {
+            Shot shot = (Shot) s;
 
-            while (it.hasNext()) {
-                Sentry sentry = (Sentry) it.next();
-                Sentry.Projectile p = sentry.getProjectile();
+            if (shot.isVisible()) {
+                Iterator it = sentries.iterator();
+                int shotX = shot.getX();
+                int shotY = shot.getY();
 
-                int pX = p.getX();
-                int pY = p.getY();
-                int sentryX = sentry.getX();
-                int sentryY = sentry.getY();
+                while (it.hasNext()) {
+                    Sentry sentry = (Sentry) it.next();
+                    Sentry.Projectile p = sentry.getProjectile();
 
-                if (p.isVisible() && shot.isVisible()) {
-                    if (shotX >= (pX) && shotX <= (pX + ALIEN_WIDTH) &&
-                            shotY >= (pY) && shotY <= (pY+ALIEN_HEIGHT) ) {
-                        ImageIcon ii = new ImageIcon(getClass().getResource(expl));
-                        p.setImage(ii.getImage());
-                        p.setDying(true);
-                        shot.die();
-                        p.setDestroyed(true);
+                    int pX = p.getX();
+                    int pY = p.getY();
+                    int sentryX = sentry.getX();
+                    int sentryY = sentry.getY();
 
+                    if (p.isVisible() && shot.isVisible()) {
+                        if (shotX >= (pX) && shotX <= (pX + ALIEN_WIDTH) &&
+                                shotY >= (pY) && shotY <= (pY+ALIEN_HEIGHT) ) {
+                            ImageIcon ii = new ImageIcon(getClass().getResource(expl));
+                            p.setImage(ii.getImage());
+                            p.setDying(true);
+                            shot.setDying(true);
+                            p.setDestroyed(true);
+                        }
+                    }
+
+                    if (sentry.isVisible() && shot.isVisible()) {
+                        if (shotX >= (sentryX) && shotX <= (sentryX + ALIEN_WIDTH) &&
+                                shotY >= (sentryY) && shotY <= (sentryY+ALIEN_HEIGHT) ) {
+                            ImageIcon ii = new ImageIcon(getClass().getResource(expl));
+                            sentry.setImage(ii.getImage());
+                            sentry.setDying(true);
+
+                            deaths++;
+                            shot.setDying(true);
+                        }
                     }
                 }
-
-                if (sentry.isVisible() && shot.isVisible()) {
-                    if (shotX >= (sentryX) && shotX <= (sentryX + ALIEN_WIDTH) &&
-                            shotY >= (sentryY) && shotY <= (sentryY+ALIEN_HEIGHT) ) {
-                        ImageIcon ii = new ImageIcon(getClass().getResource(expl));
-                        sentry.setImage(ii.getImage());
-                        sentry.setDying(true);
-                        deaths++;
-                        shot.die();
-                    }
-                }
-
+                //extracted movement code into shot method
+                shot.move();
             }
-
-            int y = shot.getY();
-            y -= 4;
-            if (y < 0)
-                shot.die();
-            else shot.setY(y);
         }
-
-
 
     }
 
-    @Override
     public void run() {
 
         long beforeTime, timeDiff, sleep;
@@ -304,13 +321,52 @@ public class TurretBoard extends JPanel implements Runnable, Constants {
             int x = player.getX();
             int y = player.getY();
 
-            if (ingame)
-            {
+            if (ingame) {
+
+
                 if (key == KeyEvent.VK_W) {
-                    if (!shot.isVisible())
-                        shot = new Shot(x, y, Direction.UP);
+                    for (Object s : shots) {
+                        Shot shot = (Shot) s;
+
+                        if (!shot.isVisible()){
+                            shot = new Shot(x, y, Direction.UP);
+                            shots.add(shot);
+                        }
+                    }
                 }
+                if (key == KeyEvent.VK_A) {
+                    for (Object s : shots) {
+                        Shot shot = (Shot) s;
+
+                        if (!shot.isVisible()){
+                            shot = new Shot(x, y, Direction.LEFT);
+                            shots.add(shot);
+                        }
+                    }
+                }
+                if (key == KeyEvent.VK_S) {
+                    for (Object s : shots) {
+                        Shot shot = (Shot) s;
+
+                        if (!shot.isVisible()){
+                            shot = new Shot(x, y, Direction.DOWN);
+                            shots.add(shot);
+                        }
+                    }
+                }
+                if (key == KeyEvent.VK_D) {
+                    for (Object s : shots) {
+                        Shot shot = (Shot) s;
+
+                        if (!shot.isVisible()){
+                            shot = new Shot(x, y, Direction.RIGHT);
+                            shots.add(shot);
+                        }
+                    }
+                }
+
             }
+
         }
     }
 }

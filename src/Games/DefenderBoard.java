@@ -50,6 +50,7 @@ public class DefenderBoard extends JPanel implements Runnable, Constants {
 
     public DefenderBoard()
     {
+        this.shots = new ArrayList();
         addKeyListener(new TAdapter());
         setFocusable(true);
         d = new Dimension(BOARD_WIDTH, BOARD_HEIGHT);
@@ -67,7 +68,6 @@ public class DefenderBoard extends JPanel implements Runnable, Constants {
     public void gameInit() {
 
         bogeys = new ArrayList();
-        shots = new ArrayList();
         swarm = new ArrayList();
         ingame = true;
         ImageIcon ii = new ImageIcon(this.getClass().getResource(alienpix));
@@ -134,6 +134,10 @@ public class DefenderBoard extends JPanel implements Runnable, Constants {
 
             if (shot.isVisible()) {
                 g.drawImage(shot.getImage(), shot.getX(), shot.getY(), this);
+            }
+
+            if (shot.isDying()){
+                shot.die();
             }
         }
     }
@@ -260,7 +264,7 @@ public class DefenderBoard extends JPanel implements Runnable, Constants {
                             ImageIcon ii = new ImageIcon(getClass().getResource(expl));
                             b.setImage(ii.getImage());
                             b.setDying(true);
-                            shot.die();
+                            shot.setDying(true);
                             b.setDestroyed(true);
                         }
                     }
@@ -272,7 +276,7 @@ public class DefenderBoard extends JPanel implements Runnable, Constants {
                             bogey.setImage(ii.getImage());
                             bogey.setDying(true);
                             deaths++;
-                            shot.die();
+                            shot.setDying(true);
                         }
                     }
                 }
@@ -308,6 +312,8 @@ public class DefenderBoard extends JPanel implements Runnable, Constants {
 
         }
 
+
+
         for (Object bogey1 : bogeys) {
 
             Bogey bogey = (Bogey) bogey1;
@@ -323,7 +329,6 @@ public class DefenderBoard extends JPanel implements Runnable, Constants {
                 bogey.act(direction);
             }
         }
-
 
 
 
