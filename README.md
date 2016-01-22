@@ -7,4 +7,5 @@ Special thanks to Jan Bodnar who provided the original base code for the project
 http://zetcode.com/tutorials/javagamestutorial/spaceinvaders/
 
 
-The project is ongoing with hacks and tweaks as well as refactoring occuring frequently.
+The project is ongoing with hacks and tweaks as well as refactoring occuring week to week.
+
