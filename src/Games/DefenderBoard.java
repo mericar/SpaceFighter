@@ -35,6 +35,7 @@ public class DefenderBoard extends JPanel implements Runnable, Constants {
     private int swarmerX = 800;
     private int swarmerY = 50;
     private int direction = dxleft;
+    private int directionOpp = dxright;
     private int deaths = 0;
 
     private boolean ingame = true;
@@ -69,6 +70,7 @@ public class DefenderBoard extends JPanel implements Runnable, Constants {
     }
 
     public void gameInit() {
+        player = new Player();
 
         bogeys = new ArrayList();
         swarm = new ArrayList();
@@ -77,20 +79,18 @@ public class DefenderBoard extends JPanel implements Runnable, Constants {
 
         for (int i=0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                Bogey bogey = new Bogey(alienX + 18 * j, alienY + 18 * i);
+                Bogey bogey = new Bogey(alienX + 18 * j, alienY + 18 * i, player);
                 bogey.setImage(ii.getImage());
                 bogeys.add(bogey);
             }
         }
         for (int i=0; i < 4; i++) {
             for (int j=0; j < 3; j++) {
-                Bogey bogey = new Bogey(swarmerX + 21*j, swarmerY + 21*i);
+                Bogey bogey = new Bogey(swarmerX + 21*j, swarmerY + 21*i, player);
                 bogey.setImage(ii.getImage());
                 swarm.add(bogey);
             }
         }
-
-        player = new Player();
 
         shotUp = new Shot(Direction.UP);
         shotDown = new Shot(Direction.DOWN);
@@ -355,12 +355,12 @@ public class DefenderBoard extends JPanel implements Runnable, Constants {
 
 
 
-        // bogeys
+        // bogeys are looped through:
         for (Object bogey1 : bogeys) {
             Bogey a1 = (Bogey) bogey1;
             int x = a1.getX();
 
-            if (x >= BOARD_WIDTH - BORDER_RIGHT && direction != -1) {
+            if (x >= BOARD_WIDTH - BORDER_RIGHT && direction != -2) {
                 direction = dxleft;
                 for (Object bogey : bogeys) {
                     Bogey a2 = (Bogey) bogey;
@@ -368,7 +368,7 @@ public class DefenderBoard extends JPanel implements Runnable, Constants {
                 }
             }
 
-            if (x <= BORDER_LEFT && direction != 1) {
+            if (x <= BORDER_LEFT && direction != 2) {
                 direction = dxright;
 
                 for (Object bogey : bogeys) {
@@ -383,16 +383,16 @@ public class DefenderBoard extends JPanel implements Runnable, Constants {
             Bogey a1 = (Bogey) swarmer;
             int x = a1.getX();
 
-            if (x >= BOARD_WIDTH - BORDER_RIGHT && direction != -1) {
-                direction = dxleft;
+            if (x >= BOARD_WIDTH - BORDER_RIGHT && directionOpp != -5) {
+                directionOpp = dxleftFast;
                 for (Object swarmer2 : swarm) {
                     Bogey a2 = (Bogey) swarmer2;
                     a2.setY(a2.getY() + GO_DOWN);
                 }
             }
 
-            if (x <= BORDER_LEFT && direction != 1) {
-                direction = dxright;
+            if (x <= BORDER_LEFT && directionOpp != 5) {
+                directionOpp = dxrightFast;
 
                 for (Object swarmer3 : swarm) {
                     Bogey a = (Bogey) swarmer3;
@@ -425,7 +425,7 @@ public class DefenderBoard extends JPanel implements Runnable, Constants {
                     ingame = false;
                     gameOverMessage = "Invasion!";
                 }
-                bogey.act(direction);
+                bogey.act(directionOpp);
             }
         }
 

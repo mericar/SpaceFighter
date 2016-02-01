@@ -14,7 +14,7 @@ public class Player extends Sprite implements Constants {
 
     private final int START_Y = 280;
     private final int START_X = 270;
-    private String player = "purp.jpeg";
+    private String player = "blue.jpg";
     private int width;
     private int height;
 

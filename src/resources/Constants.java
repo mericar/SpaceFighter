@@ -7,6 +7,8 @@ package resources;
 public interface Constants {
     int dxleft = -2;
     int dxright = 2;
+    int dxleftFast = -5;
+    int dxrightFast = 5;
     int BOARD_WIDTH = 1500;
     int BOARD_HEIGHT = 925;
     int GROUND = 900;

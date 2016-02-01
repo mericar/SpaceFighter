@@ -11,21 +11,13 @@ import agents.Shot;
 import resources.Constants;
 import resources.Direction;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.FontMetrics;
-import java.awt.Graphics;
-import java.awt.Toolkit;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
-
-import javax.swing.ImageIcon;
-import javax.swing.JPanel;
 
 
 public class Board extends JPanel implements Runnable, Constants {
@@ -64,6 +56,7 @@ public class Board extends JPanel implements Runnable, Constants {
     }
 
     public void gameInit() {
+        player = new Player();
 
         bogeys = new ArrayList();
         ingame = true;
@@ -71,7 +64,7 @@ public class Board extends JPanel implements Runnable, Constants {
 
         for (int i=0; i < 3; i++) {
             for (int j=0; j < 3; j++) {
-                Bogey bogey = new Bogey(alienX + 18*j, alienY + 18*i);
+                Bogey bogey = new Bogey(alienX + 18*j, alienY + 18*i, player);
                 bogey.setImage(ii.getImage());
                 bogeys.add(bogey);
             }

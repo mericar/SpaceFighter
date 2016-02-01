@@ -28,7 +28,8 @@ public class Sentry extends Sprite {
         this.y = y;
     }
 
-    public Projectile getProjectile(){return projectile;}
+    public Projectile getProjectile(){return this.projectile;}
+
 
     public class Projectile extends Sprite {
 
@@ -49,5 +50,13 @@ public class Sentry extends Sprite {
         public boolean isDestroyed() {
             return destroyed;
         }
+
+        public void move(){
+            if (!this.isDestroyed()) {
+                // Do intelligent movement..
+                }
+        }
+
     }
+
 }

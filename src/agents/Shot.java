@@ -10,7 +10,7 @@ import javax.swing.*;
 
 public class Shot extends Sprite {
 
-    private String shot = "purp.jpeg";
+    private String shot = "red.jpg";
     private final int H_SPACE = 4;
     private final int V_SPACE = 4;
     private Direction shotDirection;

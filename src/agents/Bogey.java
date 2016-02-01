@@ -13,10 +13,12 @@ public class Bogey extends Sprite implements Constants {
 
     private Missile missile;
     private String shot = "purp.jpeg";
+    private Player player;
 
-    public Bogey(int x, int y) {
+    public Bogey(int x, int y, Player p) {
         this.x = x;
         this.y = y;
+        this.player = p;
 
         missile = new Missile(x, y);
         ImageIcon ii = new ImageIcon(this.getClass().getResource(shot));
@@ -55,7 +57,17 @@ public class Bogey extends Sprite implements Constants {
 
         public void move(){
             if (!this.isDestroyed()) {
-                this.setY(this.getY() + 1);
+                if(this.getY() - player.getY() > 0){
+                    this.setY(this.getY() - 2);
+                }else {
+                    this.setY(this.getY() + 1);
+                }
+                if(this.getX() - player.getX() > 0){
+                    this.setX(this.getX() - 1);
+                }else {
+                    this.setX(this.getX() + 2);
+                }
+
                 if (this.getY() >= GROUND - BOMB_HEIGHT) {
                     this.setDestroyed(true);
                 }
