@@ -26,12 +26,14 @@ public class DefenderBoard extends JPanel implements Runnable, Constants {
     private Dimension d;
     private ArrayList bogeys;
     private ArrayList swarm;
-    private ArrayList<Shot> shots;
+    public ArrayList shots;
     private Player player;
     //private Shot shot;
 
     private int alienX = 350;
     private int alienY = 100;
+    private int swarmerX = 800;
+    private int swarmerY = 50;
     private int direction = dxleft;
     private int deaths = 0;
 
@@ -41,6 +43,7 @@ public class DefenderBoard extends JPanel implements Runnable, Constants {
     private String gameOverMessage = "Game Over";
 
     private Thread animator;
+
     private Shot shotUp;
     private Shot shotDown;
     private Shot shotLeft;
@@ -73,10 +76,17 @@ public class DefenderBoard extends JPanel implements Runnable, Constants {
         ImageIcon ii = new ImageIcon(this.getClass().getResource(alienpix));
 
         for (int i=0; i < 3; i++) {
-            for (int j=0; j < 3; j++) {
-                Bogey bogey = new Bogey(alienX + 18*j, alienY + 18*i);
+            for (int j = 0; j < 3; j++) {
+                Bogey bogey = new Bogey(alienX + 18 * j, alienY + 18 * i);
                 bogey.setImage(ii.getImage());
                 bogeys.add(bogey);
+            }
+        }
+        for (int i=0; i < 4; i++) {
+            for (int j=0; j < 3; j++) {
+                Bogey bogey = new Bogey(swarmerX + 21*j, swarmerY + 21*i);
+                bogey.setImage(ii.getImage());
+                swarm.add(bogey);
             }
         }
 
@@ -102,15 +112,24 @@ public class DefenderBoard extends JPanel implements Runnable, Constants {
 
         for (Object bogey1 : bogeys) {
             Bogey bogey = (Bogey) bogey1;
-
             if (bogey.isVisible()) {
                 g.drawImage(bogey.getImage(), bogey.getX(), bogey.getY(), this);
             }
-
             if (bogey.isDying()) {
                 bogey.die();
             }
         }
+
+        for (Object bogey2 : swarm) {
+            Bogey bogey = (Bogey) bogey2;
+            if (bogey.isVisible()) {
+                g.drawImage(bogey.getImage(), bogey.getX(), bogey.getY(), this);
+            }
+            if (bogey.isDying()) {
+                bogey.die();
+            }
+        }
+
     }
 
     public void drawPlayer(Graphics g) {
@@ -129,13 +148,10 @@ public class DefenderBoard extends JPanel implements Runnable, Constants {
     public void drawShot(Graphics g) {
 
         for (Object s : shots) {
-
             Shot shot = (Shot) s;
-
             if (shot.isVisible()) {
                 g.drawImage(shot.getImage(), shot.getX(), shot.getY(), this);
             }
-
             if (shot.isDying()){
                 shot.die();
             }
@@ -146,7 +162,15 @@ public class DefenderBoard extends JPanel implements Runnable, Constants {
 
         for (Object bogey : bogeys) {
             Bogey a = (Bogey) bogey;
+            Bogey.Missile b = a.getMissile();
 
+            if (!b.isDestroyed()) {
+                g.drawImage(b.getImage(), b.getX(), b.getY(), this);
+            }
+        }
+
+        for (Object bogey : swarm) {
+            Bogey a = (Bogey) bogey;
             Bogey.Missile b = a.getMissile();
 
             if (!b.isDestroyed()) {
@@ -209,18 +233,32 @@ public class DefenderBoard extends JPanel implements Runnable, Constants {
         }
 
 
-
-
         // player
         player.act();
 
         if (player.isVisible()) {
-            Iterator it = bogeys.iterator();
+            Iterator bogeyIt1 = bogeys.iterator();
+            Iterator bogeyIt2 = swarm.iterator();
             int playerX = player.getX();
             int playerY = player.getY();
 
-            while (it.hasNext()) {
-                Bogey bogey = (Bogey) it.next();
+            while (bogeyIt1.hasNext()) {
+                Bogey bogey = (Bogey) bogeyIt1.next();
+                int alienX = bogey.getX();
+                int alienY = bogey.getY();
+
+                if (bogey.isVisible()) {
+                    if (playerX >= (alienX) && playerX <= (alienX + ALIEN_WIDTH) &&
+                            playerY >= (alienY) && playerY <= (alienY+ALIEN_HEIGHT) ) {
+                        ImageIcon ii = new ImageIcon(getClass().getResource(expl));
+                        player.setImage(ii.getImage());
+                        player.setDying(true);
+                    }
+                }
+            }
+
+            while (bogeyIt2.hasNext()) {
+                Bogey bogey = (Bogey) bogeyIt2.next();
                 int alienX = bogey.getX();
                 int alienY = bogey.getY();
 
@@ -235,22 +273,51 @@ public class DefenderBoard extends JPanel implements Runnable, Constants {
             }
         }
 
-
-
-
         // shots are looped through:
         for (Object s : shots) {
 
             Shot shot = (Shot) s;
 
             if (shot.isVisible()) {
-                Iterator it = bogeys.iterator();
+                Iterator bogeyIt = bogeys.iterator();
+                Iterator swarmIt = swarm.iterator();
 
                 int shotX = shot.getX();
                 int shotY = shot.getY();
 
-                while (it.hasNext()) {
-                    Bogey bogey = (Bogey) it.next();
+                while (bogeyIt.hasNext()) {
+                    Bogey bogey = (Bogey) bogeyIt.next();
+                    Bogey.Missile b = bogey.getMissile();
+
+                    int bombX = b.getX();
+                    int bombY = b.getY();
+                    int alienX = bogey.getX();
+                    int alienY = bogey.getY();
+
+                    if (b.isVisible() && shot.isVisible()) {
+                        if (shotX >= (bombX) && shotX <= (bombX + ALIEN_WIDTH) &&
+                                shotY >= (bombY) && shotY <= (bombY+ALIEN_HEIGHT) ) {
+                            ImageIcon ii = new ImageIcon(getClass().getResource(expl));
+                            b.setImage(ii.getImage());
+                            b.setDying(true);
+                            shot.setDying(true);
+                            b.setDestroyed(true);
+                        }
+                    }
+
+                    if (bogey.isVisible() && shot.isVisible()) {
+                        if (shotX >= (alienX) && shotX <= (alienX + ALIEN_WIDTH) &&
+                                shotY >= (alienY) && shotY <= (alienY+ALIEN_HEIGHT) ) {
+                            ImageIcon ii = new ImageIcon(getClass().getResource(expl));
+                            bogey.setImage(ii.getImage());
+                            bogey.setDying(true);
+                            deaths++;
+                            shot.setDying(true);
+                        }
+                    }
+                }
+                while (swarmIt.hasNext()) {
+                    Bogey bogey = (Bogey) swarmIt.next();
                     Bogey.Missile b = bogey.getMissile();
 
                     int bombX = b.getX();
@@ -312,16 +379,48 @@ public class DefenderBoard extends JPanel implements Runnable, Constants {
 
         }
 
+        for (Object swarmer : swarm) {
+            Bogey a1 = (Bogey) swarmer;
+            int x = a1.getX();
+
+            if (x >= BOARD_WIDTH - BORDER_RIGHT && direction != -1) {
+                direction = dxleft;
+                for (Object swarmer2 : swarm) {
+                    Bogey a2 = (Bogey) swarmer2;
+                    a2.setY(a2.getY() + GO_DOWN);
+                }
+            }
+
+            if (x <= BORDER_LEFT && direction != 1) {
+                direction = dxright;
+
+                for (Object swarmer3 : swarm) {
+                    Bogey a = (Bogey) swarmer3;
+                    a.setY(a.getY() + GO_DOWN);
+                }
+            }
+
+        }
+
 
 
         for (Object bogey1 : bogeys) {
-
             Bogey bogey = (Bogey) bogey1;
 
             if (bogey.isVisible()) {
-
                 int y = bogey.getY();
+                if (y > GROUND - ALIEN_HEIGHT) {
+                    ingame = false;
+                    gameOverMessage = "Invasion!";
+                }
+                bogey.act(direction);
+            }
+        }
+        for (Object swarmer : swarm) {
+            Bogey bogey = (Bogey) swarmer;
 
+            if (bogey.isVisible()) {
+                int y = bogey.getY();
                 if (y > GROUND - ALIEN_HEIGHT) {
                     ingame = false;
                     gameOverMessage = "Invasion!";
@@ -333,12 +432,14 @@ public class DefenderBoard extends JPanel implements Runnable, Constants {
 
 
         // bombs
-        Iterator i3 = bogeys.iterator();
+        Iterator bogeyIt = bogeys.iterator();
+        Iterator swarmIt = swarm.iterator();
         Random generator = new Random();
+        Random generatorS = new Random();
 
-        while (i3.hasNext()) {
+        while (bogeyIt.hasNext()) {
             int shot = generator.nextInt(10);
-            Bogey a = (Bogey) i3.next();
+            Bogey a = (Bogey) bogeyIt.next();
             Bogey.Missile m = a.getMissile();
             if (shot == CHANCE && a.isVisible() && m.isDestroyed()) {
                 m.setDestroyed(false);
@@ -364,6 +465,36 @@ public class DefenderBoard extends JPanel implements Runnable, Constants {
             }
             m.move();
         }
+
+        while (swarmIt.hasNext()) {
+            int shot = generatorS.nextInt(10);
+            Bogey a = (Bogey) swarmIt.next();
+            Bogey.Missile m = a.getMissile();
+            if (shot == CHANCE && a.isVisible() && m.isDestroyed()) {
+                m.setDestroyed(false);
+                m.setX(a.getX());
+                m.setY(a.getY());
+            }
+
+            int missileX = m.getX();
+            int missileY = m.getY();
+            int playerX = player.getX();
+            int playerY = player.getY();
+
+            if (player.isVisible() && !m.isDestroyed()) {
+                if ( missileX >= (playerX) &&
+                        missileX <= (playerX+PLAYER_WIDTH) &&
+                        missileY >= (playerY) &&
+                        missileY <= (playerY+PLAYER_HEIGHT) ) {
+                    ImageIcon ii = new ImageIcon(this.getClass().getResource(expl));
+                    player.setImage(ii.getImage());
+                    player.setDying(true);
+                    m.setDestroyed(true);
+                }
+            }
+            m.move();
+        }
+        // End Animation Cycle
     }
 
     public void run() {

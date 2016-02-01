@@ -16,7 +16,7 @@ public interface Constants {
     int BORDER_RIGHT = 10;
     int BORDER_LEFT = 105;
     int GO_DOWN = 50;
-    int NUMBER_OF_ALIENS_TO_DESTROY = 5;
+    int NUMBER_OF_ALIENS_TO_DESTROY = 15;
     int CHANCE = 5;
     int DELAY = 17;
     int PLAYER_WIDTH = 19;
