@@ -1,7 +1,7 @@
 # SpaceFighter
 
 ##Gameplay
-WASD for guns, arrows for movement, just like the good ol' days.
+WASD for guns, arrows for movement: just like the good ol' days.
 
 No Jar as of yet. For the moment by simply loading the project into IntelliJ or Eclipse and running the program gameplay should be accesible. Defender is presently the only game mode with more or less complete functionality. Enjoy!
 
